@@ -332,6 +332,8 @@ inputExpire = (e) ->
   value = value.replace /\D/g, ''
   if value.length > 4
     setPreviewValue target
+    month = value.substring(0,2)
+    year = value.substring(2)
     if Payment.fns.validateCardExpiry(month, year)
       jumpToNext target
     else
@@ -453,8 +455,8 @@ removeInvalidMarkHander = (e) ->
   el = e.target
   if el.setCustomValidity
     el.setCustomValidity('')
-  else
-    $(el).removeClass('error')
+
+  $(el).removeClass('error')
 
 markAsInvalid = (el) ->
   if el.setCustomValidity

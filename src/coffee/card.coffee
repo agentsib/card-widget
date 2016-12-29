@@ -81,6 +81,8 @@ class Card
       valid: 'jp-card-valid'
       invalid: 'jp-card-invalid'
     debug: false
+    events:
+      onSubmit: -> null
 
   constructor: (opts) ->
     @options = extend(true, @defaults, opts)
@@ -183,10 +185,46 @@ class Card
     QJ.on @$cvcInput, 'focus', @handle('flipCard')
     QJ.on @$cvcInput, 'blur', @handle('unflipCard')
 
+    func = (e) =>
+      if @.isValid()
+        @.options.events.onSubmit(true)
+      else
+        @.options.events.onSubmit(false)
+        e.preventDefault();
+        e.stopPropagation();
+
+    @$el.addEventListener 'submit', func, false
+
     bindVal @$nameInput, @$nameDisplay,
         fill: false
         filters: @validToggler('cardHolderName')
         join: ' '
+
+  isValid: ->
+
+    if (@$expiryInput.length == 1)
+      value = QJ.val(@$expiryInput[0])
+      value = value.replace /\D/g, ''
+      month = value.substring(0,2)
+      year = value.substring(2)
+    else
+      month = QJ.val(@$expiryInput[0])
+      year = QJ.val(@$expiryInput[1])
+
+    if not Payment.fns.validateCardExpiry(month, year)
+      QJ.addClass(@$expiryInput, 'error')
+      return false
+
+    if not Payment.fns.validateCardNumber(QJ.val(@$numberInput[0]))
+      QJ.addClass(@$numberInput, 'error')
+      return false
+
+    if not Payment.fns.validateCardCVC(QJ.val(@$cvcInput[0]), @.cardType)
+      QJ.addClass(@$cvcInput, 'error')
+
+      return false
+
+    return true
 
   handleInitialPlaceholders: ->
     for name, selector of @options.formSelectors

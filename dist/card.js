@@ -104,7 +104,12 @@ var card =
 	      valid: 'jp-card-valid',
 	      invalid: 'jp-card-invalid'
 	    },
-	    debug: false
+	    debug: false,
+	    events: {
+	      onSubmit: function() {
+	        return null;
+	      }
+	    }
 	  };
 
 	  function Card(opts) {
@@ -190,7 +195,7 @@ var card =
 	  };
 
 	  Card.prototype.attachHandlers = function() {
-	    var expiryFilters, numberInputFilters;
+	    var expiryFilters, func, numberInputFilters;
 	    numberInputFilters = [this.validToggler('cardNumber')];
 	    if (this.options.masks.cardNumber) {
 	      numberInputFilters.push(this.maskCardNumber);
@@ -221,11 +226,49 @@ var card =
 	    });
 	    QJ.on(this.$cvcInput, 'focus', this.handle('flipCard'));
 	    QJ.on(this.$cvcInput, 'blur', this.handle('unflipCard'));
+	    func = (function(_this) {
+	      return function(e) {
+	        if (_this.isValid()) {
+	          return _this.options.events.onSubmit(true);
+	        } else {
+	          _this.options.events.onSubmit(false);
+	          e.preventDefault();
+	          return e.stopPropagation();
+	        }
+	      };
+	    })(this);
+	    this.$el.addEventListener('submit', func, false);
 	    return bindVal(this.$nameInput, this.$nameDisplay, {
 	      fill: false,
 	      filters: this.validToggler('cardHolderName'),
 	      join: ' '
 	    });
+	  };
+
+	  Card.prototype.isValid = function() {
+	    var month, value, year;
+	    if (this.$expiryInput.length === 1) {
+	      value = QJ.val(this.$expiryInput[0]);
+	      value = value.replace(/\D/g, '');
+	      month = value.substring(0, 2);
+	      year = value.substring(2);
+	    } else {
+	      month = QJ.val(this.$expiryInput[0]);
+	      year = QJ.val(this.$expiryInput[1]);
+	    }
+	    if (!Payment.fns.validateCardExpiry(month, year)) {
+	      QJ.addClass(this.$expiryInput, 'error');
+	      return false;
+	    }
+	    if (!Payment.fns.validateCardNumber(QJ.val(this.$numberInput[0]))) {
+	      QJ.addClass(this.$numberInput, 'error');
+	      return false;
+	    }
+	    if (!Payment.fns.validateCardCVC(QJ.val(this.$cvcInput[0]), this.cardType)) {
+	      QJ.addClass(this.$cvcInput, 'error');
+	      return false;
+	    }
+	    return true;
 	  };
 
 	  Card.prototype.handleInitialPlaceholders = function() {
@@ -1269,6 +1312,8 @@ var card =
 	  value = value.replace(/\D/g, '');
 	  if (value.length > 4) {
 	    setPreviewValue(target);
+	    month = value.substring(0, 2);
+	    year = value.substring(2);
 	    if (Payment.fns.validateCardExpiry(month, year)) {
 	      jumpToNext(target);
 	    } else {
@@ -1426,10 +1471,9 @@ var card =
 	  var el;
 	  el = e.target;
 	  if (el.setCustomValidity) {
-	    return el.setCustomValidity('');
-	  } else {
-	    return $(el).removeClass('error');
+	    el.setCustomValidity('');
 	  }
+	  return $(el).removeClass('error');
 	};
 
 	markAsInvalid = function(el) {
