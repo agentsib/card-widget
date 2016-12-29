@@ -1,7 +1,7 @@
 require '../scss/card.scss'
 
 QJ = require 'qj'
-payment = require 'payment'
+payment = require './payment'
 extend = require 'node.extend'
 
 class Card
@@ -122,6 +122,23 @@ class Card
 
       console.error "Card can't find a #{name} in your form." if !obj.length and @options.debug
       this["$#{name}"] = obj
+
+    $(@$numberInput).data('next-input', if @$nameInput.length then $(@$nameInput).first() else $(@$expiryInput).first())
+    $(@$nameInput).data('next-input', $(@$expiryInput).first())
+    if (@$expiryInput.length == 1)
+      $(@$expiryInput).data('next-input', $(@$cvcInput).first())
+    else
+      $(@$expiryInput).first().data('next-input', $(@$expiryInput).last())
+      $(@$expiryInput).last().data('next-input', $(@$cvcInput).first())
+
+    $(@$cvcInput).data('prev-input', $(@$expiryInput).last())
+    prevInputForExpiry = if @$nameInput.length then $(@$nameInput).first() else $(@$numberInput).first()
+    if (@$expiryInput.length == 1)
+      $(@$expiryInput).data('prev-input', prevInputForExpiry)
+    else
+      $(@$expiryInput).first().data('prev-input', prevInputForExpiry)
+      $(@$expiryInput).last().data('prev-input', $(@$expiryInput).first())
+
 
     if @options.formatting
       Payment.formatCardNumber(@$numberInput)

@@ -3,11 +3,11 @@
 <head>
     <title>Card &ndash; the better way to collect credit cards</title>
     <meta name="viewport" content="initial-scale=1">
+    <!-- CSS is included through the card.js script -->
     <script
             src="https://code.jquery.com/jquery-2.2.4.js"
             integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
             crossorigin="anonymous"></script>
-    <!-- CSS is included through the card.js script -->
 </head>
 <body>
     <style>
@@ -36,8 +36,10 @@
         <div class="form-container active">
             <form action="">
                 <input placeholder="Card number" type="tel" name="number">
-                <input placeholder="MM/YY" type="tel" name="expiry">
+                <input class="expiry" placeholder="MM" type="tel" name="expiryDay">
+                <input class="expiry" placeholder="YY" type="tel" name="expiryYear">
                 <input placeholder="CVC" type="number" name="cvc">
+                <input type="submit" value="submit">
             </form>
         </div>
     </div>
@@ -46,7 +48,13 @@
     <script>
         new Card({
             form: document.querySelector('form'),
-            container: '.card-wrapper'
+            container: '.card-wrapper',
+            formSelectors: {
+                numberInput: 'input[name="number"]',
+                expiryInput: 'input.expiry',
+                cvcInput: 'input[name="cvc"]',
+                nameInput: 'input[name="name"]'
+            }
         });
     </script>
 </body>
