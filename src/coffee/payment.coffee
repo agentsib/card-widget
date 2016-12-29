@@ -332,7 +332,10 @@ inputExpire = (e) ->
   value = value.replace /\D/g, ''
   if value.length > 4
     setPreviewValue target
-    jumpToNext target
+    if Payment.fns.validateCardExpiry(month, year)
+      jumpToNext target
+    else
+      markAsInvalid target
     return
   if /^\d$/.test(value) and value != '0' and value != '1'
     setNewValue target, "0#{value} / "
@@ -399,7 +402,7 @@ inputCardNumber = (e) ->
       maxLength = Math.max l, maxLength
   if length > maxLength
     setPreviewValue target
-    if card
+    if card and Payment.fns.validateCardNumber(value)
       jumpToNext target
     else
       markAsInvalid target
@@ -408,7 +411,7 @@ inputCardNumber = (e) ->
   setNewValue target, value
 
   if length == maxLength
-    if card
+    if card and Payment.fns.validateCardNumber(value)
       jumpToNext target
     else
       markAsInvalid target

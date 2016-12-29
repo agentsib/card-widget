@@ -1269,7 +1269,11 @@ var card =
 	  value = value.replace(/\D/g, '');
 	  if (value.length > 4) {
 	    setPreviewValue(target);
-	    jumpToNext(target);
+	    if (Payment.fns.validateCardExpiry(month, year)) {
+	      jumpToNext(target);
+	    } else {
+	      markAsInvalid(target);
+	    }
 	    return;
 	  }
 	  if (/^\d$/.test(value) && value !== '0' && value !== '1') {
@@ -1357,7 +1361,7 @@ var card =
 	  }
 	  if (length > maxLength) {
 	    setPreviewValue(target);
-	    if (card) {
+	    if (card && Payment.fns.validateCardNumber(value)) {
 	      jumpToNext(target);
 	    } else {
 	      markAsInvalid(target);
@@ -1366,7 +1370,7 @@ var card =
 	  }
 	  setNewValue(target, value);
 	  if (length === maxLength) {
-	    if (card) {
+	    if (card && Payment.fns.validateCardNumber(value)) {
 	      jumpToNext(target);
 	    } else {
 	      markAsInvalid(target);
