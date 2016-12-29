@@ -1516,18 +1516,11 @@ var card =
 	removeInvalidMarkHander = function(e) {
 	  var el;
 	  el = e.target;
-	  if (el.setCustomValidity) {
-	    el.setCustomValidity('');
-	  }
 	  return $(el).removeClass('error');
 	};
 
 	markAsInvalid = function(el) {
-	  if (el.setCustomValidity) {
-	    return el.setCustomValidity('Invalid');
-	  } else {
-	    return $(el).addClass('error');
-	  }
+	  return $(el).addClass('error');
 	};
 
 	rememberPrevValue = function(e) {

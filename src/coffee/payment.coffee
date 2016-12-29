@@ -1,5 +1,6 @@
 QJ = require 'qj'
 
+
 defaultFormat = /(\d{1,4})/g
 
 #cards = [
@@ -453,16 +454,10 @@ jumpToNext = (el) ->
 
 removeInvalidMarkHander = (e) ->
   el = e.target
-  if el.setCustomValidity
-    el.setCustomValidity('')
-
   $(el).removeClass('error')
 
 markAsInvalid = (el) ->
-  if el.setCustomValidity
-    el.setCustomValidity('Invalid')
-  else
-    $(el).addClass('error')
+  $(el).addClass('error')
 
 rememberPrevValue = (e) ->
   target = e.target
