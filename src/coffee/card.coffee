@@ -202,7 +202,7 @@ class Card
         join: ' '
 
   isValid: ->
-
+    isValid = true
     if (@$expiryInput.length == 1)
       value = QJ.val(@$expiryInput[0])
       value = value.replace /\D/g, ''
@@ -214,18 +214,20 @@ class Card
 
     if not Payment.fns.validateCardExpiry(month, year)
       QJ.addClass(@$expiryInput, 'error')
-      return false
+      QJ.addClass(@$expiryInput, 'jp-card-invalid')
+      isValid = false
 
-    if not Payment.fns.validateCardNumber(QJ.val(@$numberInput[0]))
+    if not QJ.val(@$numberInput[0]) or not Payment.fns.validateCardNumber(QJ.val(@$numberInput[0]))
       QJ.addClass(@$numberInput, 'error')
-      return false
+      QJ.addClass(@$numberInput, 'jp-card-invalid')
+      isValid = false
 
-    if not Payment.fns.validateCardCVC(QJ.val(@$cvcInput[0]), @.cardType)
+    if not QJ.val(@$cvcInput[0]) or not Payment.fns.validateCardCVC(QJ.val(@$cvcInput[0]), @.cardType)
       QJ.addClass(@$cvcInput, 'error')
+      QJ.addClass(@$cvcInput, 'jp-card-invalid')
+      isValid = false
 
-      return false
-
-    return true
+    return isValid
 
   handleInitialPlaceholders: ->
     for name, selector of @options.formSelectors

@@ -189,6 +189,7 @@ reFormatCardNumber = (e) ->
   setTimeout =>
     target = e.target
     value   = QJ.val(target)
+    value = value.replace /\D/g, ''
     value   = Payment.fns.formatCardNumber(value)
     QJ.val(target, value)
     QJ.trigger(target, 'change')
@@ -420,13 +421,23 @@ inputCardNumber = (e) ->
       markAsInvalid target
   return
 
+pasteCVC = (e) ->
+  setTimeout =>
+    target = e.target
+    value = QJ.val(target)
+    value = value.replace /\D/g, ''
+    if value.length > 3
+      value = value.substring 0, 3
+    QJ.val(target, value)
+
 inputRestrictCVC = (e) ->
   target = e.target
   value = QJ.val target
+  value = value.replace /\D/g, ''
   if not /^\d*/.test(value)
     setPreviewValue target
   if value.length > 3
-    setPreviewValue target
+    setNewValue target, value.substring(0,3)
   if value.length == 3
     jumpToNext target
 
@@ -499,7 +510,7 @@ setPreviewValue = (el) ->
 
 restrictNumeric = (e) ->
   # Key event is for a browser shortcut
-  return true if e.metaKey or e.ctrlKey
+  return true if e.metaKey or e.ctrlKey or e.originalEvent?.ctrlKey or e.originalEvent?.metaKey
 
   # If keycode is a space
   return e.preventDefault() if e.which is 32
@@ -680,6 +691,7 @@ class Payment
     QJ.on el, 'keydown', prevInputHandler
     QJ.on el, 'keydown', removeInvalidMarkHander
     QJ.on el, 'input', inputRestrictCVC
+    QJ.on el, 'paste', pasteCVC
     el
   @formatCardExpiry: (el) ->
     Payment.restrictNumeric el

@@ -292,7 +292,8 @@ var card =
 	  };
 
 	  Card.prototype.isValid = function() {
-	    var month, value, year;
+	    var isValid, month, value, year;
+	    isValid = true;
 	    if (this.$expiryInput.length === 1) {
 	      value = QJ.val(this.$expiryInput[0]);
 	      value = value.replace(/\D/g, '');
@@ -304,17 +305,20 @@ var card =
 	    }
 	    if (!Payment.fns.validateCardExpiry(month, year)) {
 	      QJ.addClass(this.$expiryInput, 'error');
-	      return false;
+	      QJ.addClass(this.$expiryInput, 'jp-card-invalid');
+	      isValid = false;
 	    }
-	    if (!Payment.fns.validateCardNumber(QJ.val(this.$numberInput[0]))) {
+	    if (!QJ.val(this.$numberInput[0]) || !Payment.fns.validateCardNumber(QJ.val(this.$numberInput[0]))) {
 	      QJ.addClass(this.$numberInput, 'error');
-	      return false;
+	      QJ.addClass(this.$numberInput, 'jp-card-invalid');
+	      isValid = false;
 	    }
-	    if (!Payment.fns.validateCardCVC(QJ.val(this.$cvcInput[0]), this.cardType)) {
+	    if (!QJ.val(this.$cvcInput[0]) || !Payment.fns.validateCardCVC(QJ.val(this.$cvcInput[0]), this.cardType)) {
 	      QJ.addClass(this.$cvcInput, 'error');
-	      return false;
+	      QJ.addClass(this.$cvcInput, 'jp-card-invalid');
+	      isValid = false;
 	    }
-	    return true;
+	    return isValid;
 	  };
 
 	  Card.prototype.handleInitialPlaceholders = function() {
@@ -1091,7 +1095,7 @@ var card =
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var Payment, QJ, cardFromNumber, cardFromType, cards, defaultFormat, formatBackCardNumber, formatBackExpiry, formatCardNumber, formatExpiry, formatForwardExpiry, formatForwardSlash, formatMonthExpiry, hasTextSelected, inputCardNumber, inputExpire, inputExpireMonth, inputExpireYear, inputRestrictCVC, jumpToNext, luhnCheck, markAsInvalid, prevInputHandler, reFormatCardNumber, rememberPrevValue, removeInvalidMarkHander, restrictCVC, restrictCardNumber, restrictCombinedExpiry, restrictExpiry, restrictMonthExpiry, restrictNumeric, restrictYearExpiry, setCardType, setNewValue, setPreviewValue,
+	/* WEBPACK VAR INJECTION */(function(global) {var Payment, QJ, cardFromNumber, cardFromType, cards, defaultFormat, formatBackCardNumber, formatBackExpiry, formatCardNumber, formatExpiry, formatForwardExpiry, formatForwardSlash, formatMonthExpiry, hasTextSelected, inputCardNumber, inputExpire, inputExpireMonth, inputExpireYear, inputRestrictCVC, jumpToNext, luhnCheck, markAsInvalid, pasteCVC, prevInputHandler, reFormatCardNumber, rememberPrevValue, removeInvalidMarkHander, restrictCVC, restrictCardNumber, restrictCombinedExpiry, restrictExpiry, restrictMonthExpiry, restrictNumeric, restrictYearExpiry, setCardType, setNewValue, setPreviewValue,
 	  indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
 	QJ = __webpack_require__(6);
@@ -1200,6 +1204,7 @@ var card =
 	      var target, value;
 	      target = e.target;
 	      value = QJ.val(target);
+	      value = value.replace(/\D/g, '');
 	      value = Payment.fns.formatCardNumber(value);
 	      QJ.val(target, value);
 	      return QJ.trigger(target, 'change');
@@ -1469,15 +1474,31 @@ var card =
 	  }
 	};
 
+	pasteCVC = function(e) {
+	  return setTimeout((function(_this) {
+	    return function() {
+	      var target, value;
+	      target = e.target;
+	      value = QJ.val(target);
+	      value = value.replace(/\D/g, '');
+	      if (value.length > 3) {
+	        value = value.substring(0, 3);
+	      }
+	      return QJ.val(target, value);
+	    };
+	  })(this));
+	};
+
 	inputRestrictCVC = function(e) {
 	  var target, value;
 	  target = e.target;
 	  value = QJ.val(target);
+	  value = value.replace(/\D/g, '');
 	  if (!/^\d*/.test(value)) {
 	    setPreviewValue(target);
 	  }
 	  if (value.length > 3) {
-	    setPreviewValue(target);
+	    setNewValue(target, value.substring(0, 3));
 	  }
 	  if (value.length === 3) {
 	    return jumpToNext(target);
@@ -1575,8 +1596,8 @@ var card =
 	};
 
 	restrictNumeric = function(e) {
-	  var input;
-	  if (e.metaKey || e.ctrlKey) {
+	  var input, ref, ref1;
+	  if (e.metaKey || e.ctrlKey || ((ref = e.originalEvent) != null ? ref.ctrlKey : void 0) || ((ref1 = e.originalEvent) != null ? ref1.metaKey : void 0)) {
 	    return true;
 	  }
 	  if (e.which === 32) {
@@ -1804,6 +1825,7 @@ var card =
 	    QJ.on(el, 'keydown', prevInputHandler);
 	    QJ.on(el, 'keydown', removeInvalidMarkHander);
 	    QJ.on(el, 'input', inputRestrictCVC);
+	    QJ.on(el, 'paste', pasteCVC);
 	    return el;
 	  };
 
