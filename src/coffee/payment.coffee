@@ -1,4 +1,4 @@
-QJ = require 'qj'
+QJ = require './qj'
 
 
 defaultFormat = /(\d{1,4})/g
@@ -445,41 +445,44 @@ prevInputHandler = (e) ->
   target = e.target
   which = e.which || e.keyCode
   if which == 8 && QJ.val(target).length == 0
-    prev = $(target).data('prev-input')
+    prev = QJ.data target, 'prev-input'
     if prev
       prev.focus()
       try
-        prev.setSelectionRange && prev.setSelectionRange($(prev).val().length, $(prev).val().length)
+        prev.setSelectionRange && prev.setSelectionRange(QJ.val(prev).length, QJ.val(prev).length)
 
 
 jumpToNext = (el) ->
 
-  if el and $(el).data('next-input')
-    next = $(el).data('next-input')
+  if el and QJ.data(el,'next-input')
+    next = QJ.data el, 'next-input'
     next.focus()
     setTimeout ->
       try
         next.select && next.select()
-        next.setSelectionRange && next.setSelectionRange(0, $(next).val().length)
+        next.setSelectionRange && next.setSelectionRange(0, QJ.val(next).length)
   return
 
 removeInvalidMarkHander = (e) ->
   el = e.target
-  $(el).removeClass('error')
+  which = e.which || e.keyCode
+  if which == 9
+    return
+  QJ.removeClass el, 'error'
 
 markAsInvalid = (el) ->
-  $(el).addClass('error')
+  QJ.addClass el, 'error'
 
 rememberPrevValue = (e) ->
   target = e.target
-  $(target).data 'prev-value', target.value
+  QJ.data target, 'prev-value', target.value
   try
-    $(target).data 'prev-start', target.selectionStart
+    QJ.data target, 'prev-start', target.selectionStart
   return
 
 setNewValue = (el, newValue) ->
-  prevValue = $(el).data('prev-value')
-  prevStart = $(el).data('prev-start')
+  prevValue = QJ.data el, 'prev-value'
+  prevStart = QJ.data el, 'prev-start'
   if not prevValue then prevValue = ''
   if not prevStart
     prevStart = newValue.length + 1
@@ -494,8 +497,8 @@ setNewValue = (el, newValue) ->
   return
 
 setPreviewValue = (el) ->
-  prevValue = $(el).data 'prev-value'
-  prevStart = $(el).data 'prev-start'
+  prevValue = QJ.data el, 'prev-value'
+  prevStart = QJ.data el, 'prev-start'
   if not prevValue then prevValue = ''
   if not prevStart then prevStart = prevValue.length
 

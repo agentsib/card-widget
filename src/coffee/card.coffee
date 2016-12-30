@@ -1,6 +1,6 @@
 require '../scss/card.scss'
 
-QJ = require 'qj'
+QJ = require './qj'
 
 payment = require './payment'
 extend = require 'node.extend'
@@ -126,21 +126,21 @@ class Card
       console.error "Card can't find a #{name} in your form." if !obj.length and @options.debug
       this["$#{name}"] = obj
 
-    $(@$numberInput).data('next-input', if @$nameInput.length then $(@$nameInput).first() else $(@$expiryInput).first())
-    $(@$nameInput).data('next-input', $(@$expiryInput).first())
+    QJ.data(@$numberInput, 'next-input', if @$nameInput?.length then QJ.first(@$nameInput) else QJ.first(@$expiryInput))
+    QJ.data(@$nameInput, 'next-input', QJ.first(@$expiryInput))
     if (@$expiryInput.length == 1)
-      $(@$expiryInput).data('next-input', $(@$cvcInput).first())
+      QJ.data(@$expiryInput, 'next-input', QJ.first(@$cvcInput))
     else
-      $(@$expiryInput).first().data('next-input', $(@$expiryInput).last())
-      $(@$expiryInput).last().data('next-input', $(@$cvcInput).first())
+      QJ.data(QJ.first(@$expiryInput), 'next-input', QJ.last(@$expiryInput))
+      QJ.data(QJ.last(@$expiryInput), 'next-input', QJ.first(@$cvcInput))
 
-    $(@$cvcInput).data('prev-input', $(@$expiryInput).last())
-    prevInputForExpiry = if @$nameInput.length then $(@$nameInput).first() else $(@$numberInput).first()
+    QJ.data(@$cvcInput, 'prev-input', QJ.last(@$expiryInput))
+    prevInputForExpiry = if @$nameInput.length then QJ.first(@$nameInput) else QJ.last(@$numberInput)
     if (@$expiryInput.length == 1)
-      $(@$expiryInput).data('prev-input', prevInputForExpiry)
+      QJ.data(@$expiryInput, 'prev-input', prevInputForExpiry)
     else
-      $(@$expiryInput).first().data('prev-input', prevInputForExpiry)
-      $(@$expiryInput).last().data('prev-input', $(@$expiryInput).first())
+      QJ.data(QJ.first(@$expiryInput), 'prev-input', prevInputForExpiry)
+      QJ.data(QJ.last(@$expiryInput), 'prev-input', QJ.first(@$expiryInput))
 
 
     if @options.formatting
