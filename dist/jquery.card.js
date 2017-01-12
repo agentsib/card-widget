@@ -1252,7 +1252,9 @@ var card =
 	      value = value.replace(/\D/g, '');
 	      value = Payment.fns.formatCardNumber(value);
 	      QJ.val(target, value);
-	      return QJ.trigger(target, 'change');
+	      QJ.trigger(target, 'change');
+	      QJ.trigger(target, 'keyup');
+	      return null;
 	    };
 	  })(this));
 	};

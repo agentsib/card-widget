@@ -193,6 +193,8 @@ reFormatCardNumber = (e) ->
     value   = Payment.fns.formatCardNumber(value)
     QJ.val(target, value)
     QJ.trigger(target, 'change')
+    QJ.trigger(target, 'keyup')
+    null
 
 formatCardNumber = (e) ->
   # Only format if input is a number
