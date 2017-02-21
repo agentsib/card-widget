@@ -591,6 +591,7 @@ setCardType = (e) ->
     QJ.removeClass target, allTypes.join(' ')
 
     QJ.addClass target, cardType
+    QJ.toggleClass target.closest('.creditCard'), 'identified', cardType isnt 'unknown'
     QJ.toggleClass target, 'identified', cardType isnt 'unknown'
     QJ.trigger target, 'payment.cardType', cardType
 

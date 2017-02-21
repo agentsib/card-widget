@@ -1023,7 +1023,7 @@ var card =
 
 	QJ.toggleClass = function(el, className, bool) {
 	  var e;
-	  if (el.length) {
+	  if (el && el.length) {
 	    return (function() {
 	      var i, len, results;
 	      results = [];
@@ -1752,6 +1752,7 @@ var card =
 	    QJ.removeClass(target, 'unknown');
 	    QJ.removeClass(target, allTypes.join(' '));
 	    QJ.addClass(target, cardType);
+	    QJ.toggleClass(target.closest('.creditCard'), 'identified', cardType !== 'unknown');
 	    QJ.toggleClass(target, 'identified', cardType !== 'unknown');
 	    return QJ.trigger(target, 'payment.cardType', cardType);
 	  }
