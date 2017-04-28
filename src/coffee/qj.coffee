@@ -76,6 +76,8 @@ QJ.addClass = (el, className) ->
   else
     el.className += ' ' + className
 QJ.hasClass = (el, className) ->
+  if not el
+    return false
   if el.length
     hasClass = true
     for e in el
@@ -87,6 +89,8 @@ QJ.hasClass = (el, className) ->
   else
     new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className)
 QJ.removeClass = (el, className) ->
+  if not el
+    return
   return (QJ.removeClass(e, className) for e in el) if el.length
 
   if (el.classList)
@@ -95,7 +99,9 @@ QJ.removeClass = (el, className) ->
   else
     el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
 QJ.toggleClass = (el, className, bool) ->
-  return (QJ.toggleClass(e, className, bool) for e in el) if el and el.length
+  if not el
+    return
+  return (QJ.toggleClass(e, className, bool) for e in el) and el.length
 
   if bool
     QJ.addClass(el, className) unless QJ.hasClass(el, className)

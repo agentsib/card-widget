@@ -980,6 +980,9 @@ var card =
 
 	QJ.hasClass = function(el, className) {
 	  var e, hasClass, i, len;
+	  if (!el) {
+	    return false;
+	  }
 	  if (el.length) {
 	    hasClass = true;
 	    for (i = 0, len = el.length; i < len; i++) {
@@ -997,6 +1000,9 @@ var card =
 
 	QJ.removeClass = function(el, className) {
 	  var cls, e, i, len, ref, results;
+	  if (!el) {
+	    return;
+	  }
 	  if (el.length) {
 	    return (function() {
 	      var i, len, results;
@@ -1023,17 +1029,18 @@ var card =
 
 	QJ.toggleClass = function(el, className, bool) {
 	  var e;
-	  if (el && el.length) {
-	    return (function() {
-	      var i, len, results;
-	      results = [];
-	      for (i = 0, len = el.length; i < len; i++) {
-	        e = el[i];
-	        results.push(QJ.toggleClass(e, className, bool));
-	      }
-	      return results;
-	    })();
+	  if (!el) {
+	    return;
 	  }
+	  return ((function() {
+	    var i, len, results;
+	    results = [];
+	    for (i = 0, len = el.length; i < len; i++) {
+	      e = el[i];
+	      results.push(QJ.toggleClass(e, className, bool));
+	    }
+	    return results;
+	  })()) && el.length;
 	  if (bool) {
 	    if (!QJ.hasClass(el, className)) {
 	      return QJ.addClass(el, className);
