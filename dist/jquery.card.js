@@ -43,14 +43,14 @@ var card =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var $, Card,
 	  slice = [].slice;
 
 	Card = __webpack_require__(1);
 
-	$ = __webpack_require__(11);
+	$ = __webpack_require__(14);
 
 	$.card = {};
 
@@ -87,9 +87,9 @@ var card =
 	});
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var Card, QJ, extend, payment,
 	  bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -504,9 +504,9 @@ var card =
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -520,8 +520,8 @@ var card =
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./card.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./card.scss");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/index.js!./card.scss", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/index.js!./card.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -530,9 +530,9 @@ var card =
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
 	// imports
@@ -544,9 +544,9 @@ var card =
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -600,9 +600,9 @@ var card =
 	};
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -617,7 +617,7 @@ var card =
 			};
 		},
 		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+			return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 		}),
 		getHeadElement = memoize(function () {
 			return document.head || document.getElementsByTagName("head")[0];
@@ -852,9 +852,9 @@ var card =
 	}
 
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var QJ, rreturn, rtrim;
 
@@ -1143,9 +1143,9 @@ var card =
 	module.exports = QJ;
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var Payment, QJ, cardFromNumber, cardFromType, cards, defaultFormat, formatBackCardNumber, formatBackExpiry, formatCardNumber, formatExpiry, formatForwardExpiry, formatForwardSlash, formatMonthExpiry, hasTextSelected, inputCardNumber, inputExpire, inputExpireMonth, inputExpireYear, inputRestrictCVC, jumpToNext, luhnCheck, markAsInvalid, pasteCVC, prevInputHandler, reFormatCardNumber, rememberPrevValue, removeInvalidMarkHander, restrictCVC, restrictCardNumber, restrictCombinedExpiry, restrictExpiry, restrictMonthExpiry, restrictNumeric, restrictYearExpiry, setCardType, setNewValue, setPreviewValue,
 	  indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -1407,9 +1407,13 @@ var card =
 	};
 
 	inputExpire = function(e) {
-	  var month, target, value, year;
+	  var matcher, month, target, value, year;
 	  target = e.target;
 	  value = QJ.val(target);
+	  if (/^\d{2}\/\d{4}$/.test(value)) {
+	    matcher = /^(\d{2})\/(\d{4})$/.exec(value);
+	    value = matcher[1] + ' / ' + matcher[2].substring(2);
+	  }
 	  if (/^\d\d \/$/.test(value)) {
 	    setNewValue(target, value.replace(/\D/g, ''));
 	    return;
@@ -1961,18 +1965,18 @@ var card =
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = __webpack_require__(9);
 
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1986,8 +1990,42 @@ var card =
 	 * Port of jQuery.extend that actually works on node.js
 	 */
 	var is = __webpack_require__(10);
+	var has = __webpack_require__(11);
 
-	var extend = function extend() {
+	var defineProperty = Object.defineProperty;
+	var gOPD = Object.getOwnPropertyDescriptor;
+
+	// If name is '__proto__', and Object.defineProperty is available, define __proto__ as an own property on target
+	var setProperty = function setP(target, name, value) {
+	  if (defineProperty && name === '__proto__') {
+	    defineProperty(target, name, {
+	      enumerable: true,
+	      configurable: true,
+	      value: value,
+	      writable: true
+	    });
+	  } else {
+	    target[name] = value;
+	  }
+	};
+
+	// Return undefined instead of __proto__ if '__proto__' is not an own property
+	var getProperty = function getP(obj, name) {
+	  if (name === '__proto__') {
+	    if (!has(obj, name)) {
+	      return void 0;
+	    } else if (gOPD) {
+	      // In early versions of node, obj['__proto__'] is buggy when obj has
+	      // __proto__ as an own property. Object.getOwnPropertyDescriptor() works.
+	      return gOPD(obj, name).value;
+	    }
+	  }
+
+	  return obj[name];
+	};
+
+	// eslint-disable-next-line func-style
+	function extend() {
 	  var target = arguments[0] || {};
 	  var i = 1;
 	  var length = arguments.length;
@@ -2016,8 +2054,8 @@ var card =
 	      }
 	      // Extend the base object
 	      for (name in options) {
-	        src = target[name];
-	        copy = options[name];
+	        src = getProperty(target, name);
+	        copy = getProperty(options, name);
 
 	        // Prevent never-ending loop
 	        if (target === copy) {
@@ -2034,11 +2072,11 @@ var card =
 	          }
 
 	          // Never move original objects, clone them
-	          target[name] = extend(deep, clone, copy);
+	          setProperty(target, name, extend(deep, clone, copy));
 
 	        // Don't bring in undefined values
 	        } else if (typeof copy !== 'undefined') {
-	          target[name] = copy;
+	          setProperty(target, name, copy);
 	        }
 	      }
 	    }
@@ -2046,12 +2084,12 @@ var card =
 
 	  // Return the modified object
 	  return target;
-	};
+	}
 
 	/**
 	 * @public
 	 */
-	extend.version = '1.1.3';
+	extend.version = '1.1.7';
 
 	/**
 	 * Exports module.
@@ -2059,9 +2097,9 @@ var card =
 	module.exports = extend;
 
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/* globals window, HTMLElement */
 
@@ -2474,7 +2512,11 @@ var card =
 
 	is.fn = is['function'] = function (value) {
 	  var isAlert = typeof window !== 'undefined' && value === window.alert;
-	  return isAlert || toStr.call(value) === '[object Function]';
+	  if (isAlert) {
+	    return true;
+	  }
+	  var str = toStr.call(value);
+	  return str === '[object Function]' || str === '[object GeneratorFunction]' || str === '[object AsyncFunction]';
 	};
 
 	/**
@@ -2861,11 +2903,91 @@ var card =
 	module.exports = is;
 
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var bind = __webpack_require__(12);
+
+	module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var implementation = __webpack_require__(13);
+
+	module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/* eslint no-invalid-this: 1 */
+
+	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+	var slice = Array.prototype.slice;
+	var toStr = Object.prototype.toString;
+	var funcType = '[object Function]';
+
+	module.exports = function bind(that) {
+	    var target = this;
+	    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+	        throw new TypeError(ERROR_MESSAGE + target);
+	    }
+	    var args = slice.call(arguments, 1);
+
+	    var bound;
+	    var binder = function () {
+	        if (this instanceof bound) {
+	            var result = target.apply(
+	                this,
+	                args.concat(slice.call(arguments))
+	            );
+	            if (Object(result) === result) {
+	                return result;
+	            }
+	            return this;
+	        } else {
+	            return target.apply(
+	                that,
+	                args.concat(slice.call(arguments))
+	            );
+	        }
+	    };
+
+	    var boundLength = Math.max(0, target.length - args.length);
+	    var boundArgs = [];
+	    for (var i = 0; i < boundLength; i++) {
+	        boundArgs.push('$' + i);
+	    }
+
+	    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+	    if (target.prototype) {
+	        var Empty = function Empty() {};
+	        Empty.prototype = target.prototype;
+	        bound.prototype = new Empty();
+	        Empty.prototype = null;
+	    }
+
+	    return bound;
+	};
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
 
 	module.exports = jQuery;
 
-/***/ }
+/***/ })
 /******/ ]);
