@@ -1113,7 +1113,7 @@ var card =
 	    type: 'mir',
 	    pattern: /^(220[0-4])/,
 	    format: defaultFormat,
-	    length: [16],
+	    length: [16, 19],
 	    cvcLength: [3],
 	    luhn: true
 	  }, {
