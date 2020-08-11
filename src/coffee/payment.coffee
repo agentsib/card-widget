@@ -331,8 +331,8 @@ inputExpire = (e) ->
   target = e.target
   value = QJ.val target
   # Chrome autocomplete fix
-  if /^\d{2}\/\d{4}$/.test(value)
-     matcher = /^(\d{2})\/(\d{4})$/.exec(value)
+  if /^\d{2}[\/\.]\d{4}$/.test(value)
+     matcher = /^(\d{2})[\/\.](\d{4})$/.exec(value)
      value = matcher[1] + ' / ' + matcher[2].substring(2)
   if /^\d\d \/$/.test(value)
      setNewValue target, value.replace(/\D/g, '')
