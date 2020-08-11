@@ -474,8 +474,8 @@ var card =
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/index.js!./card.scss", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/index.js!./card.scss");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/dist/cjs.js!./card.scss", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/dist/cjs.js!./card.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -493,7 +493,7 @@ var card =
 
 
 	// module
-	exports.push([module.id, ".jp-card.jp-card-safari.jp-card-identified .jp-card-front:before, .jp-card.jp-card-safari.jp-card-identified .jp-card-back:before {\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);\n  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), linear-gradient(-25deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%); }\n\n.jp-card.jp-card-ie-10.jp-card-flipped, .jp-card.jp-card-ie-11.jp-card-flipped {\n  -webkit-transform: 0deg;\n  -moz-transform: 0deg;\n  -ms-transform: 0deg;\n  -o-transform: 0deg;\n  transform: 0deg; }\n  .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-front, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-front {\n    -webkit-transform: rotateY(0deg);\n    -moz-transform: rotateY(0deg);\n    -ms-transform: rotateY(0deg);\n    -o-transform: rotateY(0deg);\n    transform: rotateY(0deg); }\n  .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back {\n    -webkit-transform: rotateY(0deg);\n    -moz-transform: rotateY(0deg);\n    -ms-transform: rotateY(0deg);\n    -o-transform: rotateY(0deg);\n    transform: rotateY(0deg); }\n    .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back:after, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back:after {\n      left: 18%; }\n    .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-cvc, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-cvc {\n      -webkit-transform: rotateY(180deg);\n      -moz-transform: rotateY(180deg);\n      -ms-transform: rotateY(180deg);\n      -o-transform: rotateY(180deg);\n      transform: rotateY(180deg);\n      left: 5%; }\n    .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-shiny, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-shiny {\n      left: 84%; }\n      .jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-shiny:after, .jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-shiny:after {\n        left: -480%;\n        -webkit-transform: rotateY(180deg);\n        -moz-transform: rotateY(180deg);\n        -ms-transform: rotateY(180deg);\n        -o-transform: rotateY(180deg);\n        transform: rotateY(180deg); }\n\n.jp-card.jp-card-ie-10.jp-card-amex .jp-card-back, .jp-card.jp-card-ie-11.jp-card-amex .jp-card-back {\n  display: none; }\n\n.jp-card-logo {\n  height: 36px;\n  width: 60px;\n  font-style: italic; }\n  .jp-card-logo, .jp-card-logo:before, .jp-card-logo:after {\n    box-sizing: border-box; }\n\n.jp-card-logo.jp-card-amex {\n  text-transform: uppercase;\n  font-size: 4px;\n  font-weight: bold;\n  color: white;\n  background-image: repeating-radial-gradient(circle at center, #FFF 1px, #999 2px);\n  background-image: repeating-radial-gradient(circle at center, #FFF 1px, #999 2px);\n  border: 1px solid #EEE; }\n  .jp-card-logo.jp-card-amex:before, .jp-card-logo.jp-card-amex:after {\n    width: 28px;\n    display: block;\n    position: absolute;\n    left: 16px; }\n  .jp-card-logo.jp-card-amex:before {\n    height: 28px;\n    content: \"american\";\n    top: 3px;\n    text-align: left;\n    padding-left: 2px;\n    padding-top: 11px;\n    background: #267AC3; }\n  .jp-card-logo.jp-card-amex:after {\n    content: \"express\";\n    bottom: 11px;\n    text-align: right;\n    padding-right: 2px; }\n\n.jp-card.jp-card-amex.jp-card-flipped {\n  -webkit-transform: none;\n  -moz-transform: none;\n  -ms-transform: none;\n  -o-transform: none;\n  transform: none; }\n\n.jp-card.jp-card-amex.jp-card-identified .jp-card-front:before, .jp-card.jp-card-amex.jp-card-identified .jp-card-back:before {\n  background-color: #108168; }\n\n.jp-card.jp-card-amex.jp-card-identified .jp-card-front .jp-card-logo.jp-card-amex {\n  opacity: 1; }\n\n.jp-card.jp-card-amex.jp-card-identified .jp-card-front .jp-card-cvc {\n  visibility: visible; }\n\n.jp-card.jp-card-amex.jp-card-identified .jp-card-front:after {\n  opacity: 1; }\n\n.jp-card-logo.jp-card-discover {\n  background: #FF6600;\n  color: #111;\n  text-transform: uppercase;\n  font-style: normal;\n  font-weight: bold;\n  font-size: 10px;\n  text-align: center;\n  overflow: hidden;\n  z-index: 1;\n  padding-top: 9px;\n  letter-spacing: .03em;\n  border: 1px solid #EEE; }\n  .jp-card-logo.jp-card-discover:before, .jp-card-logo.jp-card-discover:after {\n    content: \" \";\n    display: block;\n    position: absolute; }\n  .jp-card-logo.jp-card-discover:before {\n    background: white;\n    width: 200px;\n    height: 200px;\n    border-radius: 200px;\n    bottom: -5%;\n    right: -80%;\n    z-index: -1; }\n  .jp-card-logo.jp-card-discover:after {\n    width: 8px;\n    height: 8px;\n    border-radius: 4px;\n    top: 10px;\n    left: 27px;\n    background-color: #FF6600;\n    background-image: -webkit-radial-gradient(#FF6600, #fff);\n    background-image: radial-gradient(  #FF6600, #fff);\n    content: \"network\";\n    font-size: 4px;\n    line-height: 24px;\n    text-indent: -7px; }\n\n.jp-card .jp-card-front .jp-card-logo.jp-card-discover {\n  right: 12%;\n  top: 18%; }\n\n.jp-card.jp-card-discover.jp-card-identified .jp-card-front:before, .jp-card.jp-card-discover.jp-card-identified .jp-card-back:before {\n  background-color: #86B8CF; }\n\n.jp-card.jp-card-discover.jp-card-identified .jp-card-logo.jp-card-discover {\n  opacity: 1; }\n\n.jp-card.jp-card-discover.jp-card-identified .jp-card-front:after {\n  -webkit-transition: 400ms;\n  -moz-transition: 400ms;\n  transition: 400ms;\n  content: \" \";\n  display: block;\n  background-color: #FF6600;\n  background-image: -webkit-linear-gradient(#FF6600, #ffa366, #FF6600);\n  background-image: linear-gradient(#FF6600, #ffa366, #FF6600);\n  height: 50px;\n  width: 50px;\n  border-radius: 25px;\n  position: absolute;\n  left: 100%;\n  top: 15%;\n  margin-left: -25px;\n  box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.5); }\n\n.jp-card-logo.jp-card-visa {\n  background: white;\n  text-transform: uppercase;\n  color: #1A1876;\n  text-align: center;\n  font-weight: bold;\n  font-size: 15px;\n  line-height: 18px; }\n  .jp-card-logo.jp-card-visa:before, .jp-card-logo.jp-card-visa:after {\n    content: \" \";\n    display: block;\n    width: 100%;\n    height: 25%; }\n  .jp-card-logo.jp-card-visa:before {\n    background: #1A1876; }\n  .jp-card-logo.jp-card-visa:after {\n    background: #E79800; }\n\n.jp-card.jp-card-visa.jp-card-identified .jp-card-front:before, .jp-card.jp-card-visa.jp-card-identified .jp-card-back:before {\n  background-color: #191278; }\n\n.jp-card.jp-card-visa.jp-card-identified .jp-card-logo.jp-card-visa {\n  opacity: 1; }\n\n.jp-card-logo.jp-card-mastercard {\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  font-size: 9px;\n  line-height: 36px;\n  z-index: 1;\n  text-shadow: 1px 1px rgba(0, 0, 0, 0.6); }\n  .jp-card-logo.jp-card-mastercard:before, .jp-card-logo.jp-card-mastercard:after {\n    content: \" \";\n    display: block;\n    width: 36px;\n    top: 0;\n    position: absolute;\n    height: 36px;\n    border-radius: 18px; }\n  .jp-card-logo.jp-card-mastercard:before {\n    left: 0;\n    background: #FF0000;\n    z-index: -1; }\n  .jp-card-logo.jp-card-mastercard:after {\n    right: 0;\n    background: #FFAB00;\n    z-index: -2; }\n\n.jp-card.jp-card-mastercard.jp-card-identified .jp-card-front .jp-card-logo.jp-card-mastercard, .jp-card.jp-card-mastercard.jp-card-identified .jp-card-back .jp-card-logo.jp-card-mastercard {\n  box-shadow: none; }\n\n.jp-card.jp-card-mastercard.jp-card-identified .jp-card-front:before, .jp-card.jp-card-mastercard.jp-card-identified .jp-card-back:before {\n  background-color: #0061A8; }\n\n.jp-card.jp-card-mastercard.jp-card-identified .jp-card-logo.jp-card-mastercard {\n  opacity: 1; }\n\n.jp-card-logo.jp-card-maestro {\n  color: white;\n  font-weight: bold;\n  text-align: center;\n  font-size: 14px;\n  line-height: 36px;\n  z-index: 1;\n  text-shadow: 1px 1px rgba(0, 0, 0, 0.6); }\n  .jp-card-logo.jp-card-maestro:before, .jp-card-logo.jp-card-maestro:after {\n    content: \" \";\n    display: block;\n    width: 36px;\n    top: 0;\n    position: absolute;\n    height: 36px;\n    border-radius: 18px; }\n  .jp-card-logo.jp-card-maestro:before {\n    left: 0;\n    background: #0064CB;\n    z-index: -1; }\n  .jp-card-logo.jp-card-maestro:after {\n    right: 0;\n    background: #CC0000;\n    z-index: -2; }\n\n.jp-card.jp-card-maestro.jp-card-identified .jp-card-front .jp-card-logo.jp-card-maestro, .jp-card.jp-card-maestro.jp-card-identified .jp-card-back .jp-card-logo.jp-card-maestro {\n  box-shadow: none; }\n\n.jp-card.jp-card-maestro.jp-card-identified .jp-card-front:before, .jp-card.jp-card-maestro.jp-card-identified .jp-card-back:before {\n  background-color: #0B2C5F; }\n\n.jp-card.jp-card-maestro.jp-card-identified .jp-card-logo.jp-card-maestro {\n  opacity: 1; }\n\n.jp-card-logo.jp-card-dankort {\n  width: 60px;\n  height: 36px;\n  padding: 3px;\n  border-radius: 8px;\n  border: #000000 1px solid;\n  background-color: #FFFFFF; }\n  .jp-card-logo.jp-card-dankort .dk {\n    position: relative;\n    width: 100%;\n    height: 100%;\n    overflow: hidden; }\n    .jp-card-logo.jp-card-dankort .dk:before {\n      background-color: #ED1C24;\n      content: '';\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      display: block;\n      border-radius: 6px; }\n    .jp-card-logo.jp-card-dankort .dk:after {\n      content: '';\n      position: absolute;\n      top: 50%;\n      margin-top: -7.7px;\n      right: 0;\n      width: 0;\n      height: 0;\n      border-style: solid;\n      border-width: 7px 7px 10px 0;\n      border-color: transparent #ED1C24 transparent transparent;\n      z-index: 1; }\n  .jp-card-logo.jp-card-dankort .d, .jp-card-logo.jp-card-dankort .k {\n    position: absolute;\n    top: 50%;\n    width: 50%;\n    display: block;\n    height: 15.4px;\n    margin-top: -7.7px;\n    background: white; }\n  .jp-card-logo.jp-card-dankort .d {\n    left: 0;\n    border-radius: 0 8px 10px 0; }\n    .jp-card-logo.jp-card-dankort .d:before {\n      content: '';\n      position: absolute;\n      top: 50%;\n      left: 50%;\n      display: block;\n      background: #ED1C24;\n      border-radius: 2px 4px 6px 0px;\n      height: 5px;\n      width: 7px;\n      margin: -3px 0 0 -4px; }\n  .jp-card-logo.jp-card-dankort .k {\n    right: 0; }\n    .jp-card-logo.jp-card-dankort .k:before, .jp-card-logo.jp-card-dankort .k:after {\n      content: '';\n      position: absolute;\n      right: 50%;\n      width: 0;\n      height: 0;\n      border-style: solid;\n      margin-right: -1px; }\n    .jp-card-logo.jp-card-dankort .k:before {\n      top: 0;\n      border-width: 8px 5px 0 0;\n      border-color: #ED1C24 transparent transparent transparent; }\n    .jp-card-logo.jp-card-dankort .k:after {\n      bottom: 0;\n      border-width: 0 5px 8px 0;\n      border-color: transparent transparent #ED1C24 transparent; }\n\n.jp-card.jp-card-dankort.jp-card-identified .jp-card-front:before, .jp-card.jp-card-dankort.jp-card-identified .jp-card-back:before {\n  background-color: #0055C7; }\n\n.jp-card.jp-card-dankort.jp-card-identified .jp-card-logo.jp-card-dankort {\n  opacity: 1; }\n\n.jp-card-logo.jp-card-elo {\n  height: 50px;\n  width: 50px;\n  border-radius: 100%;\n  background: black;\n  color: white;\n  text-align: center;\n  text-transform: lowercase;\n  font-size: 21px;\n  font-style: normal;\n  letter-spacing: 1px;\n  font-weight: bold;\n  padding-top: 13px; }\n  .jp-card-logo.jp-card-elo .e, .jp-card-logo.jp-card-elo .l, .jp-card-logo.jp-card-elo .o {\n    display: inline-block;\n    position: relative; }\n  .jp-card-logo.jp-card-elo .e {\n    -webkit-transform: rotate(-15deg);\n    -moz-transform: rotate(-15deg);\n    -ms-transform: rotate(-15deg);\n    -o-transform: rotate(-15deg);\n    transform: rotate(-15deg); }\n  .jp-card-logo.jp-card-elo .o {\n    position: relative;\n    display: inline-block;\n    width: 12px;\n    height: 12px;\n    right: 0;\n    top: 7px;\n    border-radius: 100%;\n    background-image: -webkit-linear-gradient( yellow 50%, red 50%);\n    background-image: linear-gradient( yellow 50%, red 50%);\n    -webkit-transform: rotate(40deg);\n    -moz-transform: rotate(40deg);\n    -ms-transform: rotate(40deg);\n    -o-transform: rotate(40deg);\n    transform: rotate(40deg);\n    text-indent: -9999px; }\n    .jp-card-logo.jp-card-elo .o:before {\n      content: \"\";\n      position: absolute;\n      width: 49%;\n      height: 49%;\n      background: black;\n      border-radius: 100%;\n      text-indent: -99999px;\n      top: 25%;\n      left: 25%; }\n\n.jp-card.jp-card-elo.jp-card-identified .jp-card-front:before, .jp-card.jp-card-elo.jp-card-identified .jp-card-back:before {\n  background-color: #6F6969; }\n\n.jp-card.jp-card-elo.jp-card-identified .jp-card-logo.jp-card-elo {\n  opacity: 1; }\n\n.jp-card-container {\n  -webkit-perspective: 1000px;\n  -moz-perspective: 1000px;\n  perspective: 1000px;\n  width: 350px;\n  max-width: 100%;\n  height: 200px;\n  margin: auto;\n  z-index: 1;\n  position: relative; }\n\n.jp-card {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  line-height: 1;\n  position: relative;\n  width: 100%;\n  height: 100%;\n  min-width: 315px;\n  border-radius: 10px;\n  -webkit-transform-style: preserve-3d;\n  -moz-transform-style: preserve-3d;\n  -ms-transform-style: preserve-3d;\n  -o-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n  -webkit-transition: all 400ms linear;\n  -moz-transition: all 400ms linear;\n  transition: all 400ms linear; }\n  .jp-card > *, .jp-card > *:before, .jp-card > *:after {\n    -moz-box-sizing: border-box;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    font-family: inherit; }\n  .jp-card.jp-card-flipped {\n    -webkit-transform: rotateY(180deg);\n    -moz-transform: rotateY(180deg);\n    -ms-transform: rotateY(180deg);\n    -o-transform: rotateY(180deg);\n    transform: rotateY(180deg);\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden; }\n  .jp-card .jp-card-front, .jp-card .jp-card-back {\n    -webkit-backface-visibility: hidden;\n    backface-visibility: hidden;\n    -webkit-transform-style: preserve-3d;\n    -moz-transform-style: preserve-3d;\n    -ms-transform-style: preserve-3d;\n    -o-transform-style: preserve-3d;\n    transform-style: preserve-3d;\n    -webkit-transition: all 400ms linear;\n    -moz-transition: all 400ms linear;\n    transition: all 400ms linear;\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    background: #DDD; }\n    .jp-card .jp-card-front:before, .jp-card .jp-card-back:before {\n      content: \" \";\n      display: block;\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n      opacity: 0;\n      border-radius: 10px;\n      -webkit-transition: all 400ms ease;\n      -moz-transition: all 400ms ease;\n      transition: all 400ms ease; }\n    .jp-card .jp-card-front:after, .jp-card .jp-card-back:after {\n      content: \" \";\n      display: block; }\n    .jp-card .jp-card-front .jp-card-display, .jp-card .jp-card-back .jp-card-display {\n      color: white;\n      font-weight: normal;\n      opacity: 0.5;\n      -webkit-transition: opacity 400ms linear;\n      -moz-transition: opacity 400ms linear;\n      transition: opacity 400ms linear; }\n      .jp-card .jp-card-front .jp-card-display.jp-card-focused, .jp-card .jp-card-back .jp-card-display.jp-card-focused {\n        opacity: 1;\n        font-weight: 700; }\n    .jp-card .jp-card-front .jp-card-cvc, .jp-card .jp-card-back .jp-card-cvc {\n      font-family: \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace;\n      font-size: 14px; }\n    .jp-card .jp-card-front .jp-card-shiny, .jp-card .jp-card-back .jp-card-shiny {\n      width: 50px;\n      height: 35px;\n      border-radius: 5px;\n      background: #CCC;\n      position: relative; }\n      .jp-card .jp-card-front .jp-card-shiny:before, .jp-card .jp-card-back .jp-card-shiny:before {\n        content: \" \";\n        display: block;\n        width: 70%;\n        height: 60%;\n        border-top-right-radius: 5px;\n        border-bottom-right-radius: 5px;\n        background: #d9d9d9;\n        position: absolute;\n        top: 20%; }\n  .jp-card .jp-card-front .jp-card-logo {\n    position: absolute;\n    opacity: 0;\n    right: 5%;\n    top: 8%;\n    -webkit-transition: 400ms;\n    -moz-transition: 400ms;\n    transition: 400ms; }\n  .jp-card .jp-card-front .jp-card-lower {\n    width: 80%;\n    position: absolute;\n    left: 10%;\n    bottom: 30px; }\n    @media only screen and (max-width: 480px) {\n      .jp-card .jp-card-front .jp-card-lower {\n        width: 90%;\n        left: 5%; } }\n    .jp-card .jp-card-front .jp-card-lower .jp-card-cvc {\n      visibility: hidden;\n      float: right;\n      position: relative;\n      bottom: 5px; }\n    .jp-card .jp-card-front .jp-card-lower .jp-card-number {\n      font-family: \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace;\n      font-size: 24px;\n      clear: both;\n      margin-bottom: 30px; }\n    .jp-card .jp-card-front .jp-card-lower .jp-card-expiry {\n      font-family: \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace;\n      letter-spacing: 0em;\n      position: relative;\n      float: right;\n      width: 25%; }\n      .jp-card .jp-card-front .jp-card-lower .jp-card-expiry:before, .jp-card .jp-card-front .jp-card-lower .jp-card-expiry:after {\n        font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n        font-weight: bold;\n        font-size: 7px;\n        white-space: pre;\n        display: block;\n        opacity: .5; }\n      .jp-card .jp-card-front .jp-card-lower .jp-card-expiry:before {\n        content: attr(data-before);\n        margin-bottom: 2px;\n        font-size: 7px;\n        text-transform: uppercase; }\n      .jp-card .jp-card-front .jp-card-lower .jp-card-expiry:after {\n        position: absolute;\n        content: attr(data-after);\n        text-align: right;\n        right: 100%;\n        margin-right: 5px;\n        margin-top: 2px;\n        bottom: 0; }\n    .jp-card .jp-card-front .jp-card-lower .jp-card-name {\n      text-transform: uppercase;\n      font-family: \"Bitstream Vera Sans Mono\", Consolas, Courier, monospace;\n      font-size: 20px;\n      max-height: 45px;\n      position: absolute;\n      bottom: 0;\n      width: 190px;\n      display: -webkit-box;\n      -webkit-line-clamp: 2;\n      -webkit-box-orient: horizontal;\n      overflow: hidden;\n      text-overflow: ellipsis; }\n  .jp-card .jp-card-back {\n    -webkit-transform: rotateY(180deg);\n    -moz-transform: rotateY(180deg);\n    -ms-transform: rotateY(180deg);\n    -o-transform: rotateY(180deg);\n    transform: rotateY(180deg); }\n    .jp-card .jp-card-back .jp-card-bar {\n      background-color: #444;\n      background-image: -webkit-linear-gradient(#444, #333);\n      background-image: linear-gradient(#444, #333);\n      width: 100%;\n      height: 20%;\n      position: absolute;\n      top: 10%; }\n    .jp-card .jp-card-back:after {\n      content: \" \";\n      display: block;\n      background-color: #FFF;\n      background-image: -webkit-linear-gradient(#FFF, #FFF);\n      background-image: linear-gradient(#FFF, #FFF);\n      width: 80%;\n      height: 16%;\n      position: absolute;\n      top: 40%;\n      left: 2%; }\n    .jp-card .jp-card-back .jp-card-cvc {\n      position: absolute;\n      top: 40%;\n      left: 85%;\n      -webkit-transition-delay: 600ms;\n      -moz-transition-delay: 600ms;\n      transition-delay: 600ms; }\n    .jp-card .jp-card-back .jp-card-shiny {\n      position: absolute;\n      top: 66%;\n      left: 2%; }\n      .jp-card .jp-card-back .jp-card-shiny:after {\n        content: \"This card has been issued by Jesse Pollak and is licensed for anyone to use anywhere for free.AIt comes with no warranty.A  For support issues, please visit: github.com/jessepollak/card.\";\n        position: absolute;\n        left: 120%;\n        top: 5%;\n        color: white;\n        font-size: 7px;\n        width: 230px;\n        opacity: .5; }\n  .jp-card.jp-card-identified {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }\n    .jp-card.jp-card-identified .jp-card-front, .jp-card.jp-card-identified .jp-card-back {\n      background-color: #000;\n      background-color: rgba(0, 0, 0, 0.5); }\n      .jp-card.jp-card-identified .jp-card-front:before, .jp-card.jp-card-identified .jp-card-back:before {\n        -webkit-transition: all 400ms ease;\n        -moz-transition: all 400ms ease;\n        transition: all 400ms ease;\n        background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);\n        background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), linear-gradient(-25deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);\n        opacity: 1; }\n      .jp-card.jp-card-identified .jp-card-front .jp-card-logo, .jp-card.jp-card-identified .jp-card-back .jp-card-logo {\n        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); }\n    .jp-card.jp-card-identified.no-radial-gradient .jp-card-front:before, .jp-card.jp-card-identified.no-radial-gradient .jp-card-back:before {\n      background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);\n      background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 1px, rgba(255, 255, 255, 0) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), repeating-linear-gradient(210deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), linear-gradient(-25deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%); }\n", ""]);
+	exports.push([module.id, ".jp-card.jp-card-safari.jp-card-identified .jp-card-front:before,.jp-card.jp-card-safari.jp-card-identified .jp-card-back:before{background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),-webkit-linear-gradient(-245deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%);background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),linear-gradient(-25deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%)}.jp-card.jp-card-ie-10.jp-card-flipped,.jp-card.jp-card-ie-11.jp-card-flipped{-webkit-transform:0deg;-moz-transform:0deg;-ms-transform:0deg;-o-transform:0deg;transform:0deg}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-front,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-front{-webkit-transform:rotateY(0deg);-moz-transform:rotateY(0deg);-ms-transform:rotateY(0deg);-o-transform:rotateY(0deg);transform:rotateY(0deg)}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back{-webkit-transform:rotateY(0deg);-moz-transform:rotateY(0deg);-ms-transform:rotateY(0deg);-o-transform:rotateY(0deg);transform:rotateY(0deg)}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back:after,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back:after{left:18%}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-cvc,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-cvc{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);left:5%}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-shiny,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-shiny{left:84%}.jp-card.jp-card-ie-10.jp-card-flipped .jp-card-back .jp-card-shiny:after,.jp-card.jp-card-ie-11.jp-card-flipped .jp-card-back .jp-card-shiny:after{left:-480%;-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg)}.jp-card.jp-card-ie-10.jp-card-amex .jp-card-back,.jp-card.jp-card-ie-11.jp-card-amex .jp-card-back{display:none}.jp-card-logo{height:36px;width:60px;font-style:italic}.jp-card-logo,.jp-card-logo:before,.jp-card-logo:after{box-sizing:border-box}.jp-card-logo.jp-card-amex{text-transform:uppercase;font-size:4px;font-weight:bold;color:white;background-image:repeating-radial-gradient(circle at center, #fff 1px, #999 2px);background-image:repeating-radial-gradient(circle at center, #fff 1px, #999 2px);border:1px solid #EEE}.jp-card-logo.jp-card-amex:before,.jp-card-logo.jp-card-amex:after{width:28px;display:block;position:absolute;left:16px}.jp-card-logo.jp-card-amex:before{height:28px;content:\"american\";top:3px;text-align:left;padding-left:2px;padding-top:11px;background:#267AC3}.jp-card-logo.jp-card-amex:after{content:\"express\";bottom:11px;text-align:right;padding-right:2px}.jp-card.jp-card-amex.jp-card-flipped{-webkit-transform:none;-moz-transform:none;-ms-transform:none;-o-transform:none;transform:none}.jp-card.jp-card-amex.jp-card-identified .jp-card-front:before,.jp-card.jp-card-amex.jp-card-identified .jp-card-back:before{background-color:#108168}.jp-card.jp-card-amex.jp-card-identified .jp-card-front .jp-card-logo.jp-card-amex{opacity:1}.jp-card.jp-card-amex.jp-card-identified .jp-card-front .jp-card-cvc{visibility:visible}.jp-card.jp-card-amex.jp-card-identified .jp-card-front:after{opacity:1}.jp-card-logo.jp-card-discover{background:#f60;color:#111;text-transform:uppercase;font-style:normal;font-weight:bold;font-size:10px;text-align:center;overflow:hidden;z-index:1;padding-top:9px;letter-spacing:.03em;border:1px solid #EEE}.jp-card-logo.jp-card-discover:before,.jp-card-logo.jp-card-discover:after{content:\" \";display:block;position:absolute}.jp-card-logo.jp-card-discover:before{background:white;width:200px;height:200px;border-radius:200px;bottom:-5%;right:-80%;z-index:-1}.jp-card-logo.jp-card-discover:after{width:8px;height:8px;border-radius:4px;top:10px;left:27px;background-color:#f60;background-image:-webkit-radial-gradient(#f60,#fff);background-image:radial-gradient(  #f60,#fff);content:\"network\";font-size:4px;line-height:24px;text-indent:-7px}.jp-card .jp-card-front .jp-card-logo.jp-card-discover{right:12%;top:18%}.jp-card.jp-card-discover.jp-card-identified .jp-card-front:before,.jp-card.jp-card-discover.jp-card-identified .jp-card-back:before{background-color:#86B8CF}.jp-card.jp-card-discover.jp-card-identified .jp-card-logo.jp-card-discover{opacity:1}.jp-card.jp-card-discover.jp-card-identified .jp-card-front:after{-webkit-transition:400ms;-moz-transition:400ms;transition:400ms;content:\" \";display:block;background-color:#f60;background-image:-webkit-linear-gradient(#f60,#ffa366,#f60);background-image:linear-gradient(#f60,#ffa366,#f60);height:50px;width:50px;border-radius:25px;position:absolute;left:100%;top:15%;margin-left:-25px;box-shadow:inset 1px 1px 3px 1px rgba(0,0,0,0.5)}.jp-card-logo.jp-card-visa{background:white;text-transform:uppercase;color:#1A1876;text-align:center;font-weight:bold;font-size:15px;line-height:18px}.jp-card-logo.jp-card-visa:before,.jp-card-logo.jp-card-visa:after{content:\" \";display:block;width:100%;height:25%}.jp-card-logo.jp-card-visa:before{background:#1A1876}.jp-card-logo.jp-card-visa:after{background:#E79800}.jp-card.jp-card-visa.jp-card-identified .jp-card-front:before,.jp-card.jp-card-visa.jp-card-identified .jp-card-back:before{background-color:#191278}.jp-card.jp-card-visa.jp-card-identified .jp-card-logo.jp-card-visa{opacity:1}.jp-card-logo.jp-card-mastercard{color:white;font-weight:bold;text-align:center;font-size:9px;line-height:36px;z-index:1;text-shadow:1px 1px rgba(0,0,0,0.6)}.jp-card-logo.jp-card-mastercard:before,.jp-card-logo.jp-card-mastercard:after{content:\" \";display:block;width:36px;top:0;position:absolute;height:36px;border-radius:18px}.jp-card-logo.jp-card-mastercard:before{left:0;background:red;z-index:-1}.jp-card-logo.jp-card-mastercard:after{right:0;background:#FFAB00;z-index:-2}.jp-card.jp-card-mastercard.jp-card-identified .jp-card-front .jp-card-logo.jp-card-mastercard,.jp-card.jp-card-mastercard.jp-card-identified .jp-card-back .jp-card-logo.jp-card-mastercard{box-shadow:none}.jp-card.jp-card-mastercard.jp-card-identified .jp-card-front:before,.jp-card.jp-card-mastercard.jp-card-identified .jp-card-back:before{background-color:#0061A8}.jp-card.jp-card-mastercard.jp-card-identified .jp-card-logo.jp-card-mastercard{opacity:1}.jp-card-logo.jp-card-maestro{color:white;font-weight:bold;text-align:center;font-size:14px;line-height:36px;z-index:1;text-shadow:1px 1px rgba(0,0,0,0.6)}.jp-card-logo.jp-card-maestro:before,.jp-card-logo.jp-card-maestro:after{content:\" \";display:block;width:36px;top:0;position:absolute;height:36px;border-radius:18px}.jp-card-logo.jp-card-maestro:before{left:0;background:#0064CB;z-index:-1}.jp-card-logo.jp-card-maestro:after{right:0;background:#c00;z-index:-2}.jp-card.jp-card-maestro.jp-card-identified .jp-card-front .jp-card-logo.jp-card-maestro,.jp-card.jp-card-maestro.jp-card-identified .jp-card-back .jp-card-logo.jp-card-maestro{box-shadow:none}.jp-card.jp-card-maestro.jp-card-identified .jp-card-front:before,.jp-card.jp-card-maestro.jp-card-identified .jp-card-back:before{background-color:#0B2C5F}.jp-card.jp-card-maestro.jp-card-identified .jp-card-logo.jp-card-maestro{opacity:1}.jp-card-logo.jp-card-dankort{width:60px;height:36px;padding:3px;border-radius:8px;border:#000 1px solid;background-color:#fff}.jp-card-logo.jp-card-dankort .dk{position:relative;width:100%;height:100%;overflow:hidden}.jp-card-logo.jp-card-dankort .dk:before{background-color:#ED1C24;content:'';position:absolute;width:100%;height:100%;display:block;border-radius:6px}.jp-card-logo.jp-card-dankort .dk:after{content:'';position:absolute;top:50%;margin-top:-7.7px;right:0;width:0;height:0;border-style:solid;border-width:7px 7px 10px 0;border-color:transparent #ED1C24 transparent transparent;z-index:1}.jp-card-logo.jp-card-dankort .d,.jp-card-logo.jp-card-dankort .k{position:absolute;top:50%;width:50%;display:block;height:15.4px;margin-top:-7.7px;background:white}.jp-card-logo.jp-card-dankort .d{left:0;border-radius:0 8px 10px 0}.jp-card-logo.jp-card-dankort .d:before{content:'';position:absolute;top:50%;left:50%;display:block;background:#ED1C24;border-radius:2px 4px 6px 0px;height:5px;width:7px;margin:-3px 0 0 -4px}.jp-card-logo.jp-card-dankort .k{right:0}.jp-card-logo.jp-card-dankort .k:before,.jp-card-logo.jp-card-dankort .k:after{content:'';position:absolute;right:50%;width:0;height:0;border-style:solid;margin-right:-1px}.jp-card-logo.jp-card-dankort .k:before{top:0;border-width:8px 5px 0 0;border-color:#ED1C24 transparent transparent transparent}.jp-card-logo.jp-card-dankort .k:after{bottom:0;border-width:0 5px 8px 0;border-color:transparent transparent #ED1C24 transparent}.jp-card.jp-card-dankort.jp-card-identified .jp-card-front:before,.jp-card.jp-card-dankort.jp-card-identified .jp-card-back:before{background-color:#0055C7}.jp-card.jp-card-dankort.jp-card-identified .jp-card-logo.jp-card-dankort{opacity:1}.jp-card-logo.jp-card-elo{height:50px;width:50px;border-radius:100%;background:black;color:white;text-align:center;text-transform:lowercase;font-size:21px;font-style:normal;letter-spacing:1px;font-weight:bold;padding-top:13px}.jp-card-logo.jp-card-elo .e,.jp-card-logo.jp-card-elo .l,.jp-card-logo.jp-card-elo .o{display:inline-block;position:relative}.jp-card-logo.jp-card-elo .e{-webkit-transform:rotate(-15deg);-moz-transform:rotate(-15deg);-ms-transform:rotate(-15deg);-o-transform:rotate(-15deg);transform:rotate(-15deg)}.jp-card-logo.jp-card-elo .o{position:relative;display:inline-block;width:12px;height:12px;right:0;top:7px;border-radius:100%;background-image:-webkit-linear-gradient( #ff0 50%,red 50%);background-image:linear-gradient( #ff0 50%,red 50%);-webkit-transform:rotate(40deg);-moz-transform:rotate(40deg);-ms-transform:rotate(40deg);-o-transform:rotate(40deg);transform:rotate(40deg);text-indent:-9999px}.jp-card-logo.jp-card-elo .o:before{content:\"\";position:absolute;width:49%;height:49%;background:black;border-radius:100%;text-indent:-99999px;top:25%;left:25%}.jp-card.jp-card-elo.jp-card-identified .jp-card-front:before,.jp-card.jp-card-elo.jp-card-identified .jp-card-back:before{background-color:#6F6969}.jp-card.jp-card-elo.jp-card-identified .jp-card-logo.jp-card-elo{opacity:1}.jp-card-container{-webkit-perspective:1000px;-moz-perspective:1000px;perspective:1000px;width:350px;max-width:100%;height:200px;margin:auto;z-index:1;position:relative}.jp-card{font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif;line-height:1;position:relative;width:100%;height:100%;min-width:315px;border-radius:10px;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;-o-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:all 400ms linear;-moz-transition:all 400ms linear;transition:all 400ms linear}.jp-card>*,.jp-card>*:before,.jp-card>*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-family:inherit}.jp-card.jp-card-flipped{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);-webkit-backface-visibility:hidden;backface-visibility:hidden}.jp-card .jp-card-front,.jp-card .jp-card-back{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-ms-transform-style:preserve-3d;-o-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-transition:all 400ms linear;-moz-transition:all 400ms linear;transition:all 400ms linear;width:100%;height:100%;position:absolute;top:0;left:0;overflow:hidden;border-radius:10px;background:#DDD}.jp-card .jp-card-front:before,.jp-card .jp-card-back:before{content:\" \";display:block;position:absolute;width:100%;height:100%;top:0;left:0;opacity:0;border-radius:10px;-webkit-transition:all 400ms ease;-moz-transition:all 400ms ease;transition:all 400ms ease}.jp-card .jp-card-front:after,.jp-card .jp-card-back:after{content:\" \";display:block}.jp-card .jp-card-front .jp-card-display,.jp-card .jp-card-back .jp-card-display{color:#fff;font-weight:normal;opacity:0.5;-webkit-transition:opacity 400ms linear;-moz-transition:opacity 400ms linear;transition:opacity 400ms linear}.jp-card .jp-card-front .jp-card-display.jp-card-focused,.jp-card .jp-card-back .jp-card-display.jp-card-focused{opacity:1;font-weight:700}.jp-card .jp-card-front .jp-card-cvc,.jp-card .jp-card-back .jp-card-cvc{font-family:\"Bitstream Vera Sans Mono\",Consolas,Courier,monospace;font-size:14px}.jp-card .jp-card-front .jp-card-shiny,.jp-card .jp-card-back .jp-card-shiny{width:50px;height:35px;border-radius:5px;background:#CCC;position:relative}.jp-card .jp-card-front .jp-card-shiny:before,.jp-card .jp-card-back .jp-card-shiny:before{content:\" \";display:block;width:70%;height:60%;border-top-right-radius:5px;border-bottom-right-radius:5px;background:#d9d9d9;position:absolute;top:20%}.jp-card .jp-card-front .jp-card-logo{position:absolute;opacity:0;right:5%;top:8%;-webkit-transition:400ms;-moz-transition:400ms;transition:400ms}.jp-card .jp-card-front .jp-card-lower{width:80%;position:absolute;left:10%;bottom:30px}@media only screen and (max-width: 480px){.jp-card .jp-card-front .jp-card-lower{width:90%;left:5%}}.jp-card .jp-card-front .jp-card-lower .jp-card-cvc{visibility:hidden;float:right;position:relative;bottom:5px}.jp-card .jp-card-front .jp-card-lower .jp-card-number{font-family:\"Bitstream Vera Sans Mono\",Consolas,Courier,monospace;font-size:24px;clear:both;margin-bottom:30px}.jp-card .jp-card-front .jp-card-lower .jp-card-expiry{font-family:\"Bitstream Vera Sans Mono\",Consolas,Courier,monospace;letter-spacing:0em;position:relative;float:right;width:25%}.jp-card .jp-card-front .jp-card-lower .jp-card-expiry:before,.jp-card .jp-card-front .jp-card-lower .jp-card-expiry:after{font-family:\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-weight:bold;font-size:7px;white-space:pre;display:block;opacity:.5}.jp-card .jp-card-front .jp-card-lower .jp-card-expiry:before{content:attr(data-before);margin-bottom:2px;font-size:7px;text-transform:uppercase}.jp-card .jp-card-front .jp-card-lower .jp-card-expiry:after{position:absolute;content:attr(data-after);text-align:right;right:100%;margin-right:5px;margin-top:2px;bottom:0}.jp-card .jp-card-front .jp-card-lower .jp-card-name{text-transform:uppercase;font-family:\"Bitstream Vera Sans Mono\",Consolas,Courier,monospace;font-size:20px;max-height:45px;position:absolute;bottom:0;width:190px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:horizontal;overflow:hidden;text-overflow:ellipsis}.jp-card .jp-card-back{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg)}.jp-card .jp-card-back .jp-card-bar{background-color:#444;background-image:-webkit-linear-gradient(#444,#333);background-image:linear-gradient(#444,#333);width:100%;height:20%;position:absolute;top:10%}.jp-card .jp-card-back:after{content:\" \";display:block;background-color:#fff;background-image:-webkit-linear-gradient(#fff,#fff);background-image:linear-gradient(#fff,#fff);width:80%;height:16%;position:absolute;top:40%;left:2%}.jp-card .jp-card-back .jp-card-cvc{position:absolute;top:40%;left:85%;-webkit-transition-delay:600ms;-moz-transition-delay:600ms;transition-delay:600ms}.jp-card .jp-card-back .jp-card-shiny{position:absolute;top:66%;left:2%}.jp-card .jp-card-back .jp-card-shiny:after{content:\"This card has been issued by Jesse Pollak and is licensed for anyone to use anywhere for free.AIt comes with no warranty.A  For support issues, please visit: github.com/jessepollak/card.\";position:absolute;left:120%;top:5%;color:white;font-size:7px;width:230px;opacity:.5}.jp-card.jp-card-identified{box-shadow:0 0 20px rgba(0,0,0,0.3)}.jp-card.jp-card-identified .jp-card-front,.jp-card.jp-card-identified .jp-card-back{background-color:#000;background-color:rgba(0,0,0,0.5)}.jp-card.jp-card-identified .jp-card-front:before,.jp-card.jp-card-identified .jp-card-back:before{-webkit-transition:all 400ms ease;-moz-transition:all 400ms ease;transition:all 400ms ease;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 30% 30%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 70% 70%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 90% 20%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 15% 80%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),-webkit-linear-gradient(-245deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%);background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 30% 30%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 70% 70%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 90% 20%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-radial-gradient(circle at 15% 80%, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),linear-gradient(-25deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%);opacity:1}.jp-card.jp-card-identified .jp-card-front .jp-card-logo,.jp-card.jp-card-identified .jp-card-back .jp-card-logo{box-shadow:0 0 0 2px rgba(255,255,255,0.3)}.jp-card.jp-card-identified.no-radial-gradient .jp-card-front:before,.jp-card.jp-card-identified.no-radial-gradient .jp-card-back:before{background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),-webkit-linear-gradient(-245deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%);background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.03) 4px),repeating-linear-gradient(90deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),repeating-linear-gradient(210deg, rgba(255,255,255,0) 1px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.05) 4px),linear-gradient(-25deg, rgba(255,255,255,0) 50%,rgba(255,255,255,0.2) 70%,rgba(255,255,255,0) 90%)}\n", ""]);
 
 	// exports
 
@@ -1364,8 +1364,8 @@ var card =
 	  var matcher, month, target, value, year;
 	  target = e.target;
 	  value = QJ.val(target);
-	  if (/^\d{2}\/\d{4}$/.test(value)) {
-	    matcher = /^(\d{2})\/(\d{4})$/.exec(value);
+	  if (/^\d{2}[\/\.]\d{4}$/.test(value)) {
+	    matcher = /^(\d{2})[\/\.](\d{4})$/.exec(value);
 	    value = matcher[1] + ' / ' + matcher[2].substring(2);
 	  }
 	  if (/^\d\d \/$/.test(value)) {
@@ -2074,6 +2074,10 @@ var card =
 	if (typeof Symbol === 'function') {
 	  symbolValueOf = Symbol.prototype.valueOf;
 	}
+	var bigIntValueOf;
+	if (typeof BigInt === 'function') {
+	  bigIntValueOf = BigInt.prototype.valueOf;
+	}
 	var isActualNaN = function (value) {
 	  return value !== value;
 	};
@@ -2101,7 +2105,7 @@ var card =
 	 * is.type
 	 * Test if `value` is a type of `type`.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @param {String} type type
 	 * @return {Boolean} true if `value` is a type of `type`, false otherwise
 	 * @api public
@@ -2115,7 +2119,7 @@ var card =
 	 * is.defined
 	 * Test if `value` is defined.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if 'value' is defined, false otherwise
 	 * @api public
 	 */
@@ -2128,7 +2132,7 @@ var card =
 	 * is.empty
 	 * Test if `value` is empty.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is empty, false otherwise
 	 * @api public
 	 */
@@ -2157,8 +2161,8 @@ var card =
 	 * is.equal
 	 * Test if `value` is equal to `other`.
 	 *
-	 * @param {Mixed} value value to test
-	 * @param {Mixed} other value to compare with
+	 * @param {*} value value to test
+	 * @param {*} other value to compare with
 	 * @return {Boolean} true if `value` is equal to `other`, false otherwise
 	 */
 
@@ -2216,8 +2220,8 @@ var card =
 	 * is.hosted
 	 * Test if `value` is hosted by `host`.
 	 *
-	 * @param {Mixed} value to test
-	 * @param {Mixed} host host to test with
+	 * @param {*} value to test
+	 * @param {*} host host to test with
 	 * @return {Boolean} true if `value` is hosted by `host`, false otherwise
 	 * @api public
 	 */
@@ -2231,7 +2235,7 @@ var card =
 	 * is.instance
 	 * Test if `value` is an instance of `constructor`.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an instance of `constructor`
 	 * @api public
 	 */
@@ -2244,7 +2248,7 @@ var card =
 	 * is.nil / is.null
 	 * Test if `value` is null.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is null, false otherwise
 	 * @api public
 	 */
@@ -2257,7 +2261,7 @@ var card =
 	 * is.undef / is.undefined
 	 * Test if `value` is undefined.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is undefined, false otherwise
 	 * @api public
 	 */
@@ -2274,7 +2278,7 @@ var card =
 	 * is.args
 	 * Test if `value` is an arguments object.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an arguments object, false otherwise
 	 * @api public
 	 */
@@ -2293,7 +2297,7 @@ var card =
 	 * is.array
 	 * Test if 'value' is an array.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an array, false otherwise
 	 * @api public
 	 */
@@ -2306,7 +2310,7 @@ var card =
 	 * is.arguments.empty
 	 * Test if `value` is an empty arguments object.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an empty arguments object, false otherwise
 	 * @api public
 	 */
@@ -2318,7 +2322,7 @@ var card =
 	 * is.array.empty
 	 * Test if `value` is an empty array.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an empty array, false otherwise
 	 * @api public
 	 */
@@ -2330,7 +2334,7 @@ var card =
 	 * is.arraylike
 	 * Test if `value` is an arraylike object.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an arguments object, false otherwise
 	 * @api public
 	 */
@@ -2351,7 +2355,7 @@ var card =
 	 * is.bool
 	 * Test if `value` is a boolean.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a boolean, false otherwise
 	 * @api public
 	 */
@@ -2364,7 +2368,7 @@ var card =
 	 * is.false
 	 * Test if `value` is false.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is false, false otherwise
 	 * @api public
 	 */
@@ -2377,7 +2381,7 @@ var card =
 	 * is.true
 	 * Test if `value` is true.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is true, false otherwise
 	 * @api public
 	 */
@@ -2394,7 +2398,7 @@ var card =
 	 * is.date
 	 * Test if `value` is a date.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a date, false otherwise
 	 * @api public
 	 */
@@ -2407,7 +2411,7 @@ var card =
 	 * is.date.valid
 	 * Test if `value` is a valid date.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @returns {Boolean} true if `value` is a valid date, false otherwise
 	 */
 	is.date.valid = function (value) {
@@ -2422,7 +2426,7 @@ var card =
 	 * is.element
 	 * Test if `value` is an html element.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an HTML Element, false otherwise
 	 * @api public
 	 */
@@ -2442,7 +2446,7 @@ var card =
 	 * is.error
 	 * Test if `value` is an error object.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an error object, false otherwise
 	 * @api public
 	 */
@@ -2459,7 +2463,7 @@ var card =
 	 * is.fn / is.function (deprecated)
 	 * Test if `value` is a function.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a function, false otherwise
 	 * @api public
 	 */
@@ -2481,7 +2485,7 @@ var card =
 	 * is.number
 	 * Test if `value` is a number.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a number, false otherwise
 	 * @api public
 	 */
@@ -2494,7 +2498,7 @@ var card =
 	 * is.infinite
 	 * Test if `value` is positive or negative infinity.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is positive or negative Infinity, false otherwise
 	 * @api public
 	 */
@@ -2506,7 +2510,7 @@ var card =
 	 * is.decimal
 	 * Test if `value` is a decimal number.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a decimal number, false otherwise
 	 * @api public
 	 */
@@ -2603,7 +2607,7 @@ var card =
 	 * is.nan
 	 * Test if `value` is not a number.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is not a number, false otherwise
 	 * @api public
 	 */
@@ -2734,7 +2738,7 @@ var card =
 	 * is.object
 	 * Test if `value` is an object.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is an object, false otherwise
 	 * @api public
 	 */
@@ -2746,7 +2750,7 @@ var card =
 	 * is.primitive
 	 * Test if `value` is a primitive.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a primitive, false otherwise
 	 * @api public
 	 */
@@ -2764,7 +2768,7 @@ var card =
 	 * is.hash
 	 * Test if `value` is a hash - a plain object literal.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a hash, false otherwise
 	 * @api public
 	 */
@@ -2781,7 +2785,7 @@ var card =
 	 * is.regexp
 	 * Test if `value` is a regular expression.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a regexp, false otherwise
 	 * @api public
 	 */
@@ -2798,7 +2802,7 @@ var card =
 	 * is.string
 	 * Test if `value` is a string.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if 'value' is a string, false otherwise
 	 * @api public
 	 */
@@ -2815,7 +2819,7 @@ var card =
 	 * is.base64
 	 * Test if `value` is a valid base64 encoded string.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if 'value' is a base64 encoded string, false otherwise
 	 * @api public
 	 */
@@ -2832,7 +2836,7 @@ var card =
 	 * is.hex
 	 * Test if `value` is a valid hex encoded string.
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if 'value' is a hex encoded string, false otherwise
 	 * @api public
 	 */
@@ -2845,13 +2849,27 @@ var card =
 	 * is.symbol
 	 * Test if `value` is an ES6 Symbol
 	 *
-	 * @param {Mixed} value value to test
+	 * @param {*} value value to test
 	 * @return {Boolean} true if `value` is a Symbol, false otherise
 	 * @api public
 	 */
 
 	is.symbol = function (value) {
 	  return typeof Symbol === 'function' && toStr.call(value) === '[object Symbol]' && typeof symbolValueOf.call(value) === 'symbol';
+	};
+
+	/**
+	 * is.bigint
+	 * Test if `value` is an ES-proposed BigInt
+	 *
+	 * @param {*} value value to test
+	 * @return {Boolean} true if `value` is a BigInt, false otherise
+	 * @api public
+	 */
+
+	is.bigint = function (value) {
+	  // eslint-disable-next-line valid-typeof
+	  return typeof BigInt === 'function' && toStr.call(value) === '[object BigInt]' && typeof bigIntValueOf.call(value) === 'bigint';
 	};
 
 	module.exports = is;
